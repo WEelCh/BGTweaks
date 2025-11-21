@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+
+
+
+
+<head>
+    <title>MaxApo</title>
+    <meta name="author"             content="WEelCh">
+    <meta name="description"        content="">
+    <meta name="keywords"           content="">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"> <!--OLD-->
+    <meta charset="utf-8">                                              <!--NEW-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!--<script src="https://unpkg.com/lucide@latest"></script>-->
+    <script src="https://unpkg.com/lucide@0.432.0/dist/umd/lucide.min.js"></script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/core.js"></script>
+
+    <script src="APPDATA.js"></script>
+    <script src="js/script.js"></script>
+
+</head>
+
+
+
+
+
+<body onload=onLoad()>
+
+    <div class="container">
+
+        <!-- HEADER
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="head-day-div" class="row nomargin content">
+            <h2 id="head-day" class="column">Maximum Apokalypse</h2>
+        </div>
+
+
+
+        <!-- TIMER
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row content" style="text-align: center;">
+            <div class="column box">
+                <h2 id="id-timer" style="color: #E1E1E1; padding: 25px 0; margin: 0;">
+                    Tag 1
+                </h2>
+            </div>
+        </div>
+
+
+        <!-- TIME DIAL & SPAWNER
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row content">
+            <!-- Time Dial Column
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+            <div id="box-time" class="six columns box" onclick=clickProgressTime()>
+                <div class="row" style="text-align: center;">
+
+                    <!-- Heading
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <div class="ten columns offset-by-one">
+                        <h5>Tageszyklus</h5>
+                    </div>
+
+                    <!-- Time Dial
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <div class="ten columns offset-by-one">
+                        <div class="row">
+                            <div class="four columns offset-by-four">
+                                <i id="timedial_weather" class="icon nearfull timedial" data-lucide="umbrella"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <i id="timedial_move" class="icon nearfull timedial" data-lucide="compass"></i>
+                            </div>
+                            <div id="dial" class="four columns">
+                                <i class="icon nearfull timedial" data-lucide="arrow-big-left"></i>
+                            </div>
+                            <div class="four columns">
+                                <i id="timedial_night" class="icon nearfull timedial" data-lucide="moon"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns offset-by-four">
+                                <i id="timedial_clan" class="icon nearfull timedial" data-lucide="users"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tooltip
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <hr class="ten columns offset-by-one">
+
+                    <div class="ten columns offset-by-one">
+                        <h4 id="timedial_effect" style="color: #E1E1E1;">-</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Spawner Column
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+            <div id="box-spawn" class="six columns box" onclick=clickSpawn()>
+                <div class="row" style="text-align: center;">
+
+                    <!-- Heading
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <div class="ten columns offset-by-one">
+                        <h5>Spawner</h5>
+                    </div>
+
+                    <!-- Spawning
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <div class="ten columns offset-by-one">
+                        <h2 id="spawner">-</h2>
+                    </div>
+
+                    <!-- Tooltip
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    <hr class="ten columns offset-by-one">
+
+                    <div class="ten columns offset-by-one">
+                        <h4 id="spawner-tooltip" style="color: #E1E1E1;">
+                            -
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Night Content 
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row content" style="text-align: center;">
+            <div class="column box">
+                <h2 id="id-night" style="color: #E1E1E1; padding: 25px 0; margin: 0;">
+                    -
+                </h2>
+                <h4 id="id-night-effect" style="color: #E1E1E1; padding: 25px 0; margin: 0;">
+                    -
+                </h4>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
