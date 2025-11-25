@@ -80,7 +80,7 @@ module card_holder_topper ( d , w , f1 , f2 ) {
 	// PLATE
 	difference(){
 		rcube([ d.x , d.y , w ] , c="xy" );
-		#translate([5*w,5*w,0]) rcube([ d.x-10*w , d.y-10*w , w ] , c="xy" ); }
+		#translate([8*w,8*w,0]) rcube([ d.x-16*w , d.y-16*w , w ] , c="xy" , r=5 ); }
 	// WALL
 	difference(){
 		translate([0,0,w]) rcube([ d.x , d.y , d.z ] , c="xy");
@@ -97,8 +97,8 @@ module token_holder ( d , w , f1 , f2 ) {
 		union(){
 			base_plate( d , w , f1 , f2 );
 			difference(){
-				translate([w,w,f1]) rcube([d.x-2*w,d.y-2*w,d.z] , c="xy" );
-				translate([2*w,2*w,f1]) rcube([d.x-4*w,d.y-4*w,2*d.z] , r=3 , c="" ); } }
+				#translate([w+0.5,w+0.5,f1]) rcube([d.x-2*w-1,d.y-2*w-1,d.z] , c="xy" );
+				translate([2*w+0.5,2*w+0.5,f1]) rcube([d.x-4*w-1,d.y-4*w-1,2*d.z] , r=3 , c="" ); } }
 		//nop_holes( d , w , f1 , f2 ); 
 				} }
 
@@ -108,25 +108,31 @@ module token_holder_topper ( d , w , f1 , f2 ) {
 	// GRID
 	difference(){
 		rcube([ d.x , d.y , w ] , c="xy" );
-		for ( i = [0:1:3]) {
-			for ( j = [0:1:6]) {
-				translate([ 3.5+i+5*i , 4.5+j+5*j , 0 ]) rcube([ 5 , 5 , w ] , c="xy" ); } } }
+		for ( i = [0:1:10]) {
+			for ( j = [0:1:12]) {
+				translate([ 3.5+2*i+5*i , 4.5+2*j+5*j , 0 ]) rcube([ 5 , 5 , w ] , c="xy" ); } } }
 	// WALL
 	difference(){
 		translate([ 0 , 0 , w ]) rcube([ d.x , d.y , d.z ] , c="xy" );
-		translate([ w , w , w ]) rcube([ d.x-2*w , d.y-2*w , d.z ] , c="xy" );
+		#translate([ w , w , w ]) rcube([ d.x-2*w , d.y-2*w , d.z ] , c="xy" );
 		translate([ 0.3*d.x , 0 , d.z+w-f2 ]) rcube([ 0.4*d.x , d.y , 2*d.z ] , c="xz" );
 		translate([ 0 , 0.3*d.y , d.z+w-f2 ]) rcube([ d.x , 0.4*d.y , 2*d.z ] , c="yz" ); }
 	//nops( d , w , f1 , f2 );
 }
 
 
+// TRAIT CARDS OZEANE
 // Höhe 76 + 2.5 = 78.5
-translate([5,0,0])   card_holder( d=[ 71 , 98 , 76 ] , w=1 , f1=2.5 , f2=2.0 );
-
+//translate([5,0,0])   card_holder( d=[ 71 , 98 , 76 ] , w=1 , f1=2.5 , f2=2.0 );
 //translate([-75,0,0]) card_holder_topper( d=[ 71 , 98 , 76 ] , w=1 , f1=2.5 , f2=2.0 );
 
+// TRAIT CARDS EVOLUTION
+//translate([0,0,0]) card_holder( d=[ 64 , 98 , 46 ] , w=1 , f1=2.5 , f2=2.0 );
+//translate([-64,0,2.5+2]) card_holder_topper( d=[ 64 , 98 , 46 ] , w=1 , f1=2.5 , f2=2.0 );
 
+// TOKENS EVOLUTION
+//token_holder( d=[ 82 , 98 , 46 ] , w=1 , f1=2.5 , f2=2.0 );
+token_holder_topper( d=[ 82 , 98 , 46-2.5 ] , w=1.25 , f1=2.5 , f2=2.0 );
 
 // BEDENKE: 4 mm walls und 2 mm margin
 
