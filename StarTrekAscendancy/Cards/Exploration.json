@@ -1,0 +1,13 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "Floor_power": "1",
+            "Holder_power": "10",
+            "SL_height": "60",
+            "SL_length": "97",
+            "SL_width": "32",
+            "Wall_power": "1"
+        }
+    },
+    "fileFormatVersion": "1"
+}

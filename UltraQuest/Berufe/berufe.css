@@ -1,0 +1,169 @@
+:root {
+    --penColor: rgb(49, 48, 48);
+    --BWColor: rgb(70, 61, 43);
+    --STColor: rgb(179, 41, 41);
+    --GEColor: rgb(35, 97, 51);
+    --ITColor: rgb(26, 34, 158);
+
+    --colorKämpfer: #ED1C24;
+    --colorDieb: #F68712;
+    --colorSeefahrer: #176FC1;
+    --colorWaldläufer: #00813C;
+    --colorKleriker: #B47541;
+    --colorZauberer: #8D188F;
+}
+body {
+    color: var(--penColor);
+    line-height: 1em;
+}
+img {
+    height: auto;
+}
+hr {
+    border-top: 0px solid var(--penColor);
+    border-bottom: 0px solid var(--penColor);
+}
+.box {
+border:2px solid var(--penColor);
+border-radius: 5px;
+height: auto;
+background-color: transparent; }
+.line {
+    border-bottom: 2px solid var(--penColor); }
+.container {
+    padding: 3px 10px;
+    margin: 1% 1%;
+    width: 98%;
+}
+.row {
+    margin-top: 10px;
+}
+p{
+    width: 90%;
+    margin: 0px 5% ;
+    text-align: left;
+}
+h6 {
+    width: 95%;
+    margin-left: 5%;
+}
+
+
+
+/* Kämpfer */
+#Kämpfer {
+    color: var(--penColor);
+}
+#Kämpfer h1, #Kämpfer h2, #Kämpfer h3, #Kämpfer h4, #Kämpfer h5, #Kämpfer h6 {
+    color: var(--colorKämpfer);
+}
+#Kämpfer hr {
+    border-top: 3px solid var(--colorKämpfer);
+}
+#Kämpfer .box {
+    border-bottom: 1px solid var(--colorKämpfer);
+    border: 2px solid var(--colorKämpfer);
+}
+#Kämpfer .line {
+    border-bottom: 2px solid var(--colorKämpfer);
+}
+
+/* Dieb */
+#Dieb {
+    color: var(--penColor);
+}
+#Dieb h1, #Dieb h2, #Dieb h3, #Dieb h4, #Dieb h5, #Dieb h6 {
+    color: var(--colorDieb);
+}
+#Dieb hr {
+    border-top: 3px solid var(--colorDieb);
+}
+#Dieb .box {
+    border-bottom: 1px solid var(--colorDieb);
+    border: 2px solid var(--colorDieb);
+}
+#Dieb .line {
+    border-bottom: 2px solid var(--colorDieb);
+}
+
+/* Seefahrer */
+#Seefahrer {
+    color: var(--penColor);
+}
+#Seefahrer h1, #Seefahrer h2, #Seefahrer h3, #Seefahrer h4, #Seefahrer h5, #Seefahrer h6 {
+    color: var(--colorSeefahrer);
+}
+#Seefahrer hr {
+    border-top: 3px solid var(--colorSeefahrer);
+}
+#Seefahrer .box {
+    border-bottom: 1px solid var(--colorSeefahrer);
+    border: 2px solid var(--colorSeefahrer);
+}
+#Seefahrer .line {
+    border-bottom: 2px solid var(--colorSeefahrer);
+}
+
+/* Waldläufer */
+#Waldläufer {
+    color: var(--penColor);
+}
+#Waldläufer h1, #Waldläufer h2, #Waldläufer h3, #Waldläufer h4, #Waldläufer h5, #Waldläufer h6 {
+    color: var(--colorWaldläufer);
+}
+#Waldläufer hr {
+    border-top: 3px solid var(--colorWaldläufer);
+}
+#Waldläufer .box {
+    border-bottom: 1px solid var(--colorWaldläufer);
+    border: 2px solid var(--colorWaldläufer);
+}
+#Waldläufer .line {
+    border-bottom: 2px solid var(--colorWaldläufer);
+}
+
+/* Kleriker */
+#Kleriker {
+    color: var(--penColor);
+}
+#Kleriker h1, #Kleriker h2, #Kleriker h3, #Kleriker h4, #Kleriker h5, #Kleriker h6 {
+    color: var(--colorKleriker);
+}
+#Kleriker hr {
+    border-top: 3px solid var(--colorKleriker);
+}
+#Kleriker .box {
+    border-bottom: 1px solid var(--colorKleriker);
+    border: 2px solid var(--colorKleriker);
+}
+#Kleriker .line {
+    border-bottom: 2px solid var(--colorKleriker);
+}
+
+/* Zauberer */
+#Zauberer {
+    color: var(--penColor);
+}
+#Zauberer h1, #Zauberer h2, #Zauberer h3, #Zauberer h4, #Zauberer h5, #Zauberer h6 {
+    color: var(--colorZauberer);
+}
+#Zauberer hr {
+    border-top: 3px solid var(--colorZauberer);
+}
+#Zauberer .box {
+    border-bottom: 1px solid var(--colorZauberer);
+    border: 2px solid var(--colorZauberer);
+}
+#Zauberer .line {
+    border-bottom: 2px solid var(--colorZauberer);
+}
+
+
+
+
+
+
+
+
+
+

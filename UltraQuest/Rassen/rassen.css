@@ -1,0 +1,217 @@
+.mirrored {
+    transform: scaleX(-1); /* This flips the image vertically */
+}
+img {
+    height: auto;
+}
+.box {
+    border-radius: 5px;
+    height: auto;
+    background-color: transparent; }
+:root {
+    --penColor: rgb(49, 48, 48);
+    --BWColor: rgb(70, 61, 43);
+    --STColor: rgb(179, 41, 41);
+    --GEColor: rgb(35, 97, 51);
+    --ITColor: rgb(26, 34, 158);
+    --boxSep: 5px;
+    --ausruestAngleich: 9px;
+    --rucksackSpace: 140px;
+
+    --colorMensch: #725039;
+    --colorZwerg: #FF2E17;
+    --colorElf: #0082CA;
+    --colorHalbling: #44B94A;
+    --colorHalbente: #00AB4F;
+    --colorKobold: #5B8C3C;
+    --colorFee: #FF9027;
+    --colorCentaurus: #455968;
+    --colorAaruk: #88780F;
+    --colorHalbelf: #00B1A0;
+    --colorOger: #005C29;
+    --colorEchse: #0C8844;
+    --colorFrosch: #D30A4F;
+    --colorBiber: #B24851;
+    --colorGnom: #AC4486;
+    --colorKatze: #f05c06;
+}
+
+
+
+
+
+/* Mensch */
+#Mensch {
+    color: var(--colorMensch); }
+#Mensch hr {
+    border-top: 1px solid var(--colorMensch);
+    border-bottom: 1px solid var(--colorMensch); }
+#Mensch .box {
+    border:2px solid var(--colorMensch); }
+#Mensch .line {
+    border-bottom: 2px solid var(--colorMensch); }
+
+/* Zwerg */
+#Zwerg {
+    color: var(--colorZwerg); }
+#Zwerg hr {
+    border-top: 1px solid var(--colorZwerg);
+    border-bottom: 1px solid var(--colorZwerg); }
+#Zwerg .box {
+    border:2px solid var(--colorZwerg); }
+#Zwerg .line {
+    border-bottom: 2px solid var(--colorZwerg); }
+
+/* Elf */
+#Elf {
+    color: var(--colorElf); }
+#Elf hr {
+    border-top: 1px solid var(--colorElf);
+    border-bottom: 1px solid var(--colorElf); }
+#Elf .box {
+    border:2px solid var(--colorElf); }
+#Elf .line {
+    border-bottom: 2px solid var(--colorElf); }
+
+/* Halbling */
+#Halbling {
+    color: var(--colorHalbling); }
+#Halbling hr {
+    border-top: 1px solid var(--colorHalbling);
+    border-bottom: 1px solid var(--colorHalbling); }
+#Halbling .box {
+    border:2px solid var(--colorHalbling); }
+#Halbling .line {
+    border-bottom: 2px solid var(--colorHalbling); }
+
+/* Halbente */
+#Halbente {
+    color: var(--colorHalbente); }
+#Halbente hr {
+    border-top: 1px solid var(--colorHalbente);
+    border-bottom: 1px solid var(--colorHalbente); }
+#Halbente .box {
+    border:2px solid var(--colorHalbente); }
+#Halbente .line {
+    border-bottom: 2px solid var(--colorHalbente); }
+
+/* Kobold */
+#Kobold {
+    color: var(--colorKobold); }
+#Kobold hr {
+    border-top: 1px solid var(--colorKobold);
+    border-bottom: 1px solid var(--colorKobold); }
+#Kobold .box {
+    border:2px solid var(--colorKobold); }
+#Kobold .line {
+    border-bottom: 2px solid var(--colorKobold); }
+
+/* Fee */
+#Fee {
+    color: var(--colorFee); }
+#Fee hr {
+    border-top: 1px solid var(--colorFee);
+    border-bottom: 1px solid var(--colorFee); }
+#Fee .box {
+    border:2px solid var(--colorFee); }
+#Fee .line {
+    border-bottom: 2px solid var(--colorFee); }
+
+/* Centaurus */
+#Centaurus {
+    color: var(--colorCentaurus); }
+#Centaurus hr {
+    border-top: 1px solid var(--colorCentaurus);
+    border-bottom: 1px solid var(--colorCentaurus); }
+#Centaurus .box {
+    border:2px solid var(--colorCentaurus); }
+#Centaurus .line {
+    border-bottom: 2px solid var(--colorCentaurus); }
+
+/* Aaruk */
+#Aaruk {
+    color: var(--colorAaruk); }
+#Aaruk hr {
+    border-top: 1px solid var(--colorAaruk);
+    border-bottom: 1px solid var(--colorAaruk); }
+#Aaruk .box {
+    border:2px solid var(--colorAaruk); }
+#Aaruk .line {
+    border-bottom: 2px solid var(--colorAaruk); }
+
+/* Halbelf */
+#Halbelf {
+    color: var(--colorHalbelf); }
+#Halbelf hr {
+    border-top: 1px solid var(--colorHalbelf);
+    border-bottom: 1px solid var(--colorHalbelf); }
+#Halbelf .box {
+    border:2px solid var(--colorHalbelf); }
+#Halbelf .line {
+    border-bottom: 2px solid var(--colorHalbelf); }
+
+/* Oger */
+#Oger {
+    color: var(--colorOger); }
+#Oger hr {
+    border-top: 1px solid var(--colorOger);
+    border-bottom: 1px solid var(--colorOger); }
+#Oger .box {
+    border:2px solid var(--colorOger); }
+#Oger .line {
+    border-bottom: 2px solid var(--colorOger); }
+
+/* Echse */
+#Echse {
+    color: var(--colorEchse); }
+#Echse hr {
+    border-top: 1px solid var(--colorEchse);
+    border-bottom: 1px solid var(--colorEchse); }
+#Echse .box {
+    border:2px solid var(--colorEchse); }
+#Echse .line {
+    border-bottom: 2px solid var(--colorEchse); }
+
+/* Frosch */
+#Frosch {
+    color: var(--colorFrosch); }
+#Frosch hr {
+    border-top: 1px solid var(--colorFrosch);
+    border-bottom: 1px solid var(--colorFrosch); }
+#Frosch .box {
+    border:2px solid var(--colorFrosch); }
+#Frosch .line {
+    border-bottom: 2px solid var(--colorFrosch); }
+
+/* Biber */
+#Biber {
+    color: var(--colorBiber); }
+#Biber hr {
+    border-top: 1px solid var(--colorBiber);
+    border-bottom: 1px solid var(--colorBiber); }
+#Biber .box {
+    border:2px solid var(--colorBiber); }
+#Biber .line {
+    border-bottom: 2px solid var(--colorBiber); }
+
+/* Gnom */
+#Gnom {
+    color: var(--colorGnom); }
+#Gnom hr {
+    border-top: 1px solid var(--colorGnom);
+    border-bottom: 1px solid var(--colorGnom); }
+#Gnom .box {
+    border:2px solid var(--colorGnom); }
+#Gnom .line {
+    border-bottom: 2px solid var(--colorGnom); }
+
+/* Katze */
+#Katze {
+    color: var(--colorKatze); }
+#Katze hr {
+    border-top: 1px solid var(--colorKatze);
+    border-bottom: 1px solid var(--colorKatze); }
+#Katze .box {
+    border:2px solid var(--colorKatze); }
+#Katze .line {
+    border-bottom: 2px solid var(--colorKatze); }

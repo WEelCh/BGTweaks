@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<head>
+    <title>UQ Übersicht</title>
+    <meta name="author"             content="WEelCh">
+    <meta name="description"        content="">
+    <meta name="keywords"           content="">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"> <!--OLD-->
+    <meta charset="utf-8">                                              <!--NEW-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="https://weelch.de/skeleton/css/weelch.css">
+    <link rel="stylesheet" href="https://weelch.de/skeleton/css/paper.css">
+    <link rel="stylesheet" href="https://weelch.de/skeleton/css/SymbolsNerdFont-Regular.css">
+
+    <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://weelch.de/skeleton/js/Log.js"></script>
+    <script src="https://weelch.de/skeleton/js/DOM.js"></script>
+    <script src="https://weelch.de/skeleton/js/Popup.js"></script>
+    <script src="https://weelch.de/skeleton/js/Cookie.js"></script>
+
+    <script src="./uebersicht.js"></script>
+    
+</head>
+
+<style>
+    :root {
+        --raceColor: #c0a81f;
+        --penColor: rgb(49, 48, 48);
+        --BWColor: rgb(70, 61, 43);
+        --STColor: rgb(179, 41, 41);
+        --GEColor: rgb(35, 97, 51);
+        --ITColor: rgb(26, 34, 158);
+        --boxSep: 5px;
+        --ausruestAngleich: 9px;
+        --rucksackSpace: 140px;
+    }
+    body {
+        color: var(--penColor);
+    }
+    .mirrored {
+    transform: scaleX(-1); /* This flips the image vertically */
+    }
+    img {
+        height: auto;
+    }
+    hr {
+        border-top: 1px solid var(--penColor);
+        border-bottom: 0px solid var(--penColor);
+    }
+    .box {
+    border:2px solid var(--penColor);
+    border-radius: 5px;
+    height: auto;
+    background-color: transparent; }
+    .line {
+        border-bottom: 2px solid var(--penColor); }
+    .container {
+        padding: 3px 10px;
+        margin: 6px 1%;
+        width: 98%;
+    }
+    .card {
+        width: 6.35cm;
+        height: 8.89cm;
+        float: left;
+        box-sizing: border-box;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+</style>
+
+
+<body class="A4 static" onload="main()">
+<section class="sheet">
+    
+    
+    <!-- HEADER
+    ================================================== 
+    <div class="row nomargin nomargin">
+        <div class="column four">
+            <hr class="row" style="margin-top: 15px;">
+        </div>
+        <h4 class="column four">Kaufübersicht</h4>
+        <div class="column four">
+            <hr class="row" style="margin-top: 15px;">
+        </div>
+    </div>-->
+    <!-- SHOP
+    ================================================== -->
+    <div class="box container">
+        
+        <div class="row nomargin nomargin">
+            <p class="column three ltxt"><b>Ausrüstung</b></p>
+            <p class="column one ctxt"><b><i>G</i></b></p>
+            <p class="column four ltxt"><b>Beschreibung</b></p>
+            <p class="column four ltxt"><b>Anmerkung</b></p>
+        </div>
+        <hr class="nomargin">
+        
+        <!-- NKWaffen
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="nkwaffen">
+        </div>
+        <hr class="nomargin">
+        <!-- FKWaffen
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="fkwaffen">
+        </div>
+        <hr class="nomargin">
+        <!-- Wands
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="wand">
+        </div>
+        <hr class="nomargin">
+        <!-- Rüstung
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="rüstungen">
+        </div>
+        <hr class="nomargin">
+        <!-- Tiere
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="tiere">
+        </div>
+        <hr class="nomargin">
+        <!-- Fahrzeuge
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="fahrzeuge">
+        </div>
+        <hr class="nomargin">
+        <!-- Magic
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="magic">
+        </div>
+        <hr class="nomargin">
+        <!-- Misc
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div id="misc">
+        </div>
+    </div>
+
+    <!-- SHOP SPECIALS
+    ================================================== -->
+    <div class="box container">
+        <!-- Meisterhaft
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row nomargin nomargin">
+            <p class="column two">
+                <b>Meisterhaft:<br>(M)</b> 
+            </p>
+            <p class="column ten">
+                Meisterwaffen (+1 KS o. -(!)), 
+                Meisterrüstungen (+1 RW o. -(!)) und <br>
+                edle Reittiere (+1 BW o. +1 NK)
+                kosten das <i>Dreifache</i>.
+            </p>
+        </div>
+        <hr class="nomargin">
+        <!-- Silber
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row nomargin nomargin">
+            <p class="column two">
+                <b>Silber:<br>(S)</b> 
+            </p>
+            <p class="column ten">
+                Silberwaffen (+1 KS gegen Untote) und 
+                Silberrüstungen (+1 RW gegen Untote)
+                kosten das <i>Doppelte</i>.
+                Sie können zum dreiviertel Preis verkauft werden.
+            </p>
+        </div>
+        <hr class="nomargin">
+        <!-- Magisch
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="row nomargin nomargin">
+            <p class="column two">
+                <b>Magisch:<br>(m)</b> 
+            </p>
+            <p class="column ten">
+                Waffen und Schilde kosten 100<i>G</i>. 
+                Rüstungen kosten 200<i>G</i>. <br>
+                (Effekt gegen Geister & Dämonen)
+            </p>
+        </div>
+    
+    </div>
+
+
+</section>
+<section class="sheet">
+
+
+    <div class="container" style="padding: 0px;">
+        <div class="row nomargin">
+            <!-- KAMPF, 
+            ================================================== -->
+            <div class="card box" style="padding-bottom: 13px;">
+                <div id="kampf">
+                </div>
+                <div id="status">
+                </div>
+            </div>
+            <!-- TRAGKRAFT, FÄHIGKEITEN, AUDIENZ
+            ================================================== -->
+            <div class="card box" style="padding-bottom: 6px;">
+                <div id="tragkraft">
+                </div>
+                <div id="fähigkeiten">
+                </div>
+                <div id="audienz">
+                </div>
+            </div>
+
+            <!-- TALISMAN
+            ================================================== -->
+            <div id="talisman" class="card box" style="padding-bottom: 2px;">
+                <h6 class="row nomargin ctxt"> 
+                    <i class='nf nf-md-cross'></i> Talisman <i class='nf nf-md-cross'></i>
+                </h6>
+                <hr class="row nomargin smaller">
+            </div>
+
+            <!-- TALISMAN
+            ================================================== -->
+            <div id="talisman" class="card box" style="padding-bottom: 2px;">
+                <h6 class="row nomargin ctxt"> 
+                    <i class='nf nf-md-cross'></i> Charaktererstellung <i class='nf nf-md-cross'></i>
+                </h6>
+                <hr class="row nomargin smaller">
+            </div>
+        </div>
+    </div>
+
+
+</section>
+</body>
+
