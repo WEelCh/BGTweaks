@@ -70,7 +70,8 @@ module card_holder ( d , w , f1 , f2 ) {
 				translate([w,w,f1]) 			rcube([ d.x-2*w , d.y-2*w , d.z ] , c="xy" );
 				translate([2*w,2*w,f1])		cube([ d.x-4*w , d.y-4*w , 2*d.z ]);
 				translate([w+15,w,f1])	cube([ d.x-2*w-30 , d.y-2*w , 2*d.z ]);
-				translate([w,w+12,f1])	cube([ d.x-2*w , d.y-2*w-24 , 2*d.z ]); } }
+				//translate([w,w+12,f1])	cube([ d.x-2*w , d.y-2*w-24 , 2*d.z ]); 
+				} }
 	//nop_holes( d , w , f1 , f2 ); 
 				} }
 
@@ -132,7 +133,12 @@ module token_holder_topper ( d , w , f1 , f2 ) {
 
 // TOKENS EVOLUTION
 //token_holder( d=[ 82 , 98 , 46 ] , w=1 , f1=2.5 , f2=2.0 );
-token_holder_topper( d=[ 82 , 98 , 46-2.5 ] , w=1.25 , f1=2.5 , f2=2.0 );
+//token_holder_topper( d=[ 82 , 98 , 46-2.5 ] , w=1.25 , f1=2.5 , f2=2.0 );
+
+// EVOLUTION PLAYER BOARDS
+card_holder( d=[ 139 , 50 , 64 ] , w=1 , f1=2.5 , f2=2.0 );
+//token_holder_topper( d=[ 82 , 98 , 47-2.5 ] , w=1.25 , f1=2.5 , f2=2.0 );
+
 
 // BEDENKE: 4 mm walls und 2 mm margin
 
