@@ -1,5 +1,4 @@
 
-// === BASE PLATE ======================================================================================= //
 module rcube ( d , r=1 , c="" ) {
 	/*
 	d  : [ x , y , z ]
@@ -29,6 +28,10 @@ module rcube ( d , r=1 , c="" ) {
 			cube([ d.x-R , d.y , d.z-R ]); rotate([90,0,0]) cylinder(r=r,h=0.0001); }
 	} else
 		assert(false, "Wrong coordinates for rcube!"); }
+
+
+
+// === BASE PLATE ======================================================================================= //
 module base_plate ( d , w , f1 , f2 , yoff , xoff ) {
 	/*
 	d  : [ x , y ]
@@ -43,6 +46,10 @@ module base_plate ( d , w , f1 , f2 , yoff , xoff ) {
 		translate([0 , 0.3*d.y , f1]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
 		translate([0.3*d.x , 0 , f1]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); } }
 //base_plate(d = [50,80] , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12);
+
+
+
+// === NOPS ============================================================================================= //
 module nops ( d , w , f1 , f2 , size=.25) {
 	translate([ 0,0,d.z+w-(8-f1-f2) ]) union(){
 		translate([ w , 2*(w+.2)+7 , -5 ]) 				scale([size,1,1])rotate([0,90,0])sphere(2.5);
@@ -58,7 +65,7 @@ module nop_holes ( d , w , f1 , f2 ) {
 
 
 // === CARD HOLDER ===================================================================================== //
-module card_holder ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
+module bgs_card ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
 	difference(){
 		union(){
 			base_plate( d , w , f1 , f2 , yoff , xoff );
@@ -69,7 +76,7 @@ module card_holder ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
 				translate([2*w+14,w,f1])	cube([ d.x-4*w-28 , d.y-2*w , 2*d.z ]);
 				translate([w,2*w+14,f1])	cube([ d.x-2*w , d.y-4*w-28 , 2*d.z ]); } }
 	nop_holes( d , w , f1 , f2 ); } }
-module card_holder_topper ( d , w=1.0 , f1=2.5 , f2=1.5 , window=true ) { 
+module bgs_card_cover ( d , w=1.0 , f1=2.5 , f2=1.5 , window=true ) { 
 	// PLATE
 	difference(){
 		rcube([ d.x , d.y , f2 ] , c="xy" );
@@ -85,7 +92,7 @@ module card_holder_topper ( d , w=1.0 , f1=2.5 , f2=1.5 , window=true ) {
 
 
 // === TOKEN HOLDER ==================================================================================== //
-module token_holder ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
+module bgs_token ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
 	difference(){
 		union(){
 			base_plate( d , w , f1 , f2 , yoff , xoff );
@@ -94,7 +101,7 @@ module token_holder ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
 				translate([w,w,f1]) rcube([d.x-2*w,d.y-2*w,d.z-f1] , c="xy" );
 				translate([2*w,2*w,f1]) rcube([d.x-4*w,d.y-4*w,2*d.z] , r=3 , c="" ); } }
 	nop_holes( d , w , f1 , f2 ); } }
-module token_holder_topper ( d , w=1.0 , f1=2.5 , f2=1.5 ) { 
+module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) { 
 	// Calculate number of grid cells based on topper dimensions
 	// Cell size is 5mm, gap is 2mm, margin is 4mm.
 	// Formula derived from: nx*5 + (nx-1)*2 <= d.x - (2*4)
@@ -125,31 +132,45 @@ module token_holder_topper ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 $fn=50; 
 // ==================================================================================================== //
 
-//Ozeane player board
-//D = [ 45-1 , 159 , 18 ];
-
-// ozeana small player fish tokens
-//D = [ 47.5 , 79 , 18 ];
-
-// ozeane medium fish tokens
-//D = [ 59 , 145 , 18 ];
-
-// ozeane big fish tokens
-//D = [ 100 , 145 , 18 ];
+// PlayerStorage
+difference(){
+	D = [95 , 180 , [ 54 , 20 ] ];
+	// Base 
+	union(){
+		rcube([ D.x , D.y , 44 ] , c="xy" );
+		translate([ 0 , 0 , 44 ]) bgs_token(d = [ D.x , D.y , 10+16 ]);
+		translate([ 2.4 , 2.4 , 44 ]) cube([ D.x-2*2.4 , D.y-2*2.4 , 26 ] );
+		translate([ 2*1.2 , D.y-2*1.2-40-5 , 2.5 ]) rcube([ D.x-4*1.2 , 40 , 67.5 ] , c="xy"); 
+	}
+	// Rocket Cutout
+	translate([ 0 , 10 , 2.5 ])  union(){
+		// lower fin
+		translate([ 0.5*D.x-8 , 0 , 0 ])  cube([ 16 , 60 , 30 ]); 
+		// body
+		translate([ 0.5*D.x , 0 , 28+18 ]) rotate( 270 , [1,0,0] )   cylinder( h=118 , r=18 );
+		translate([ 0.5*D.x-18 , 0 , 28+18 ]) cube([ 36 , 118 , 100 ]);
+		// head
+		translate([ 0.5*D.x , 118 , 28+18 ]) rotate( 270 , [1,0,0] )   cylinder( h=41 , r1=18 , r2=5 );
+		translate([ 0.5*D.x , 118 , 28+18 ]) linear_extrude(height = 30) polygon([ [-18,0], [18,0], [5,41], [-5,41] ]);
+		// upper fins
+		translate([ 10 , 25 , 50 ])  cube([ D.x-20 , 35 , 30 ]); 
+	}
+	translate([ 0 , 0 , 2.5 ])  union(){
+		// Figures
+		translate([ 2*1.2 , D.y-2*1.2-40 , 0 ])  rcube([ D.x-4*1.2 , 40 , 100 ]); 
+		// Rocket Upgrades
+		translate([ 2*1.2 , 2*1.2 , 12.5*0 ])  		rcube([ 25 , 133 , 100 ]); 
+		translate([ D.x-2*1.2-25 , 2*1.2 , 12.5*0 ])  rcube([ 25 , 133 , 100 ]); 
+		// Medals
+		translate([ 0.5*D.x-13 , 75 , 7*0 ])  cube([ 26 , 50 , 50 ]); 
+	}
+}
 
 // CARD HOLDER
-	//card_holder( d=D );
-	//translate([-D.x,0,2.5]) card_holder_topper( d=D );
+	//bgs_card( d=D );
+	//translate([-D.x,0,2.5]) bgs_card_cover( d=D );
 // TOKEN HOLDER
-	//token_holder(d = D);
-	//translate([-D.x,0,2.5]) token_holder_topper( d=D );
+	//bgs_token(d = D);
+	//translate([-D.x,0,2.5]) bgs_token_cover( d=D );
 
-// SET
-D = [ 65 , 95 , 27.5 ];
-//card_holder( d=D );
-difference(){
-	card_holder_topper(d = D , window=false);
-	#translate([D.x/2, D.y/2, 0]) rotate(a = 90) mirror(v = [1,0,0]) 
-		linear_extrude(height=.7)
-			text("SET", size=32, font="Liberation Serif:style=Bold", halign="center", valign="center");
-}
+
