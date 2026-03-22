@@ -138,7 +138,7 @@ difference(){
 	// Base 
 	union(){
 		rcube([ D.x , D.y , 44 ] , c="xy" );
-		translate([ 0 , 0 , 44 ]) bgs_token(d = [ D.x , D.y , 10+16 ]);
+		translate([ 0 , 0 , 44 ]) bgs_token([ D.x , D.y , 10+16 ]);
 		translate([ 2.4 , 2.4 , 44 ]) cube([ D.x-2*2.4 , D.y-2*2.4 , 26 ] );
 		translate([ 2*1.2 , D.y-2*1.2-40-5 , 2.5 ]) rcube([ D.x-4*1.2 , 40 , 67.5 ] , c="xy"); 
 	}
@@ -165,6 +165,7 @@ difference(){
 		translate([ 0.5*D.x-13 , 75 , 7*0 ])  cube([ 26 , 50 , 50 ]); 
 	}
 }
+translate([-95,0,0]) bgs_token_cover([ 95 , 180 , 10+16 ]);
 
 // CARD HOLDER
 	//bgs_card( d=D );
