@@ -121,7 +121,8 @@ module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 		translate([w,w,f2]) rcube([ d.x-2*w , d.y-2*w , d.z ] , c="xy");
 		translate([0 , 0.3*d.y , d.z-f1-f2]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
 		translate([0.3*d.x , 0 , d.z-f1-f2]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); }
-	nops( d , w , f1 , f2 , size=.08 ); }
+	//nops( d , w , f1 , f2 , size=.08 ); 
+	}
 
 
 
@@ -133,12 +134,13 @@ $fn=50;
 // ==================================================================================================== //
 
 // PlayerStorage
+
 difference(){
 	D = [95 , 180 , [ 54 , 20 ] ];
 	// Base 
 	union(){
-		rcube([ D.x , D.y , 44 ] , c="xy" );
-		translate([ 0 , 0 , 44 ]) bgs_token([ D.x , D.y , 10+16 ]);
+		rcube([ D.x , D.y , 44+11 ] , c="xy" );
+		translate([ 0 , 0 , 44+11 ]) bgs_token([ D.x , D.y , 15 ]);
 		translate([ 2.4 , 2.4 , 44 ]) cube([ D.x-2*2.4 , D.y-2*2.4 , 26 ] );
 		translate([ 2*1.2 , D.y-2*1.2-40-5 , 2.5 ]) rcube([ D.x-4*1.2 , 40 , 67.5 ] , c="xy"); 
 	}
@@ -153,19 +155,29 @@ difference(){
 		translate([ 0.5*D.x , 118 , 28+18 ]) rotate( 270 , [1,0,0] )   cylinder( h=41 , r1=18 , r2=5 );
 		translate([ 0.5*D.x , 118 , 28+18 ]) linear_extrude(height = 30) polygon([ [-18,0], [18,0], [5,41], [-5,41] ]);
 		// upper fins
-		translate([ 10 , 25 , 50 ])  cube([ D.x-20 , 35 , 30 ]); 
+		translate([ 10 , 25 , 50 ])  cube([ D.x-20 , 32 , 30 ]); 
 	}
 	translate([ 0 , 0 , 2.5 ])  union(){
-		// Figures
-		translate([ 2*1.2 , D.y-2*1.2-40 , 0 ])  rcube([ D.x-4*1.2 , 40 , 100 ]); 
+		// LEFT
+		// Rings
+		translate([ 2*1.2 , 2*1.2+(133-32) , 35.5 ])  		rcube([ 25 , 32 , 32+5 ]); 
+		// Tradeposts
+		translate([ 2*1.2 , 2*1.2 , 67.5-25 ])  rcube([ 25 , 99 , 100 ]); 
+
+		// RIGHT
+		// Rocketfigures
+		translate([ D.x-2*1.2-25 , 2*1.2+(133-25) , 32.5 ])  		rcube([ 25 , 25 , 35+5 ]); 
+		// Coloniefigures
+		translate([ D.x-2*1.2-25 , 2*1.2 , 67.5-40 ])  rcube([ 25 , 105.5 , 100 ]); 
+		
+		// MIDDLE
 		// Rocket Upgrades
-		translate([ 2*1.2 , 2*1.2 , 12.5*0 ])  		rcube([ 25 , 133 , 100 ]); 
-		translate([ D.x-2*1.2-25 , 2*1.2 , 12.5*0 ])  rcube([ 25 , 133 , 100 ]); 
+		translate([ 2*1.2 , D.y-2*1.2-40 , 12 ])  rcube([ D.x-4*1.2 , 40 , 100 ]); 
 		// Medals
-		translate([ 0.5*D.x-13 , 75 , 7*0 ])  cube([ 26 , 50 , 50 ]); 
+		translate([ 0.5*D.x-13 , 75 , 15 ])  rcube([ 26 , 50 , 50 ]); 
 	}
 }
-translate([-95,0,0]) bgs_token_cover([ 95 , 180 , 10+16 ]);
+translate([-95,0,57.5]) bgs_token_cover([ 95 , 180 , 15+2 ]);
 
 // CARD HOLDER
 	//bgs_card( d=D );
