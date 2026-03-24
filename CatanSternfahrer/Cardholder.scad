@@ -133,8 +133,7 @@ module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 $fn=50; 
 // ==================================================================================================== //
 
-// PlayerStorage
-
+/* PlayerStorage
 difference(){
 	D = [95 , 180 , [ 54 , 20 ] ];
 	// Base 
@@ -176,10 +175,15 @@ difference(){
 		// Medals
 		translate([ 0.5*D.x-13 , 75 , 15 ])  rcube([ 26 , 50 , 50 ]); 
 	}
-}
+}*/
 //translate([-95,0,57.5]) bgs_token_cover([ 95 , 180 , 15+2 ]);
-//translate([-95,0,57.5]) 
-//bgs_token_cover([ 95 , 180 , (15+2)*0 + 28 ]);
+
+
+// ressourcen cards
+//bgs_card([ 57 , 79 , 20 ]);
+//translate([ -57 ,0,0]) bgs_card_cover([ 57 , 79 , 20 ]);
+
+
 
 // CARD HOLDER
 	//bgs_card( d=D );

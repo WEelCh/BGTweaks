@@ -88,19 +88,22 @@ module bgs_card_cover ( d , w=1.0 , f1=2.5 , f2=1.5 , window=true ) {
 		translate([0 , 0.3*d.y , d.z-f1-f2]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
 		translate([0.3*d.x , 0 , d.z-f1-f2]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); }
 	nops( d , w , f1 , f2 , size=.25 ); }
-
-
+//bgs_card(d = [90,120,50]);
 
 // === TOKEN HOLDER ==================================================================================== //
+COVERSIZE = 15;
 module bgs_token ( d , w=1.2 , f1=2.5 , f2=1.5 , yoff=15 , xoff=12 ) {
-	difference(){
-		union(){
-			base_plate( d , w , f1 , f2 , yoff , xoff );
-			// HOLDER
-			difference(){
-				translate([w,w,f1]) rcube([d.x-2*w,d.y-2*w,d.z-f1] , c="xy" );
-				translate([2*w,2*w,f1]) rcube([d.x-4*w,d.y-4*w,2*d.z] , r=3 , c="" ); } }
-	nop_holes( d , w , f1 , f2 ); } }
+	difference() { union() {
+		rcube([ d.x , d.y , d.z-COVERSIZE ] , c="xy" );
+		translate([0,0,d.z-COVERSIZE]) difference(){
+			union(){
+				base_plate( d , w , f1 , f2 , yoff , xoff );
+				// HOLDER
+				difference(){
+					translate([w,w,f1]) rcube([d.x-2*w,d.y-2*w,COVERSIZE-f1] , c="xy" );
+					 } }
+		nop_holes( d , w , f1 , f2 ); } }
+		translate([2*w,2*w,f1]) rcube([d.x-4*w,d.y-4*w,2*d.z] , r=3 , c="" ); } }
 module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) { 
 	// Calculate number of grid cells based on topper dimensions
 	// Cell size is 5mm, gap is 2mm, margin is 4mm.
@@ -117,11 +120,11 @@ module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 			translate([ x_offset + i*7, y_offset + j*7, 0]) rcube([ 5 , 5 , f2 ] , c="xy" ); } } }
 	// WALL
 	difference(){
-		translate([0,0,f2]) rcube([ d.x , d.y , d.z-f1-f2 ] , c="xy");
-		translate([w,w,f2]) rcube([ d.x-2*w , d.y-2*w , d.z ] , c="xy");
-		translate([0 , 0.3*d.y , d.z-f1-f2]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
-		translate([0.3*d.x , 0 , d.z-f1-f2]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); }
-	nops( d , w , f1 , f2 , size=.08 ); }
+		translate([0,0,f2]) rcube([ d.x , d.y , COVERSIZE-f1-f2 ] , c="xy");
+		translate([w,w,f2]) rcube([ d.x-2*w , d.y-2*w , COVERSIZE ] , c="xy");
+		translate([0 , 0.3*d.y , COVERSIZE-f1-f2]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
+		translate([0.3*d.x , 0 , COVERSIZE-f1-f2]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); }
+	nops( [d.x,d.y,COVERSIZE] , w , f1 , f2 , size=.08 ); }
 
 
 
@@ -132,12 +135,12 @@ module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 $fn=50; 
 // ==================================================================================================== //
 
-
+D=[90,120,35];
 // CARD HOLDER
 	//bgs_card( d=D );
 	//translate([-D.x,0,2.5]) bgs_card_cover( d=D );
 // TOKEN HOLDER
-	//bgs_token(d = D);
-	//translate([-D.x,0,2.5]) bgs_token_cover( d=D );
+	bgs_token(d = D);
+	translate([-D.x,0,22.5]) bgs_token_cover( d=D );
 
 
