@@ -126,7 +126,7 @@ module bgs_token_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 		translate([w,w,f2]) rcube([ d.x-2*w , d.y-2*w , COVERSIZE ] , c="xy");
 		translate([0 , 0.3*d.y , COVERSIZE-f1-f2]) rcube([ d.x , 0.4*d.y , 3*f2 ] , r=f2 , c="yz" );
 		translate([0.3*d.x , 0 , COVERSIZE-f1-f2]) rcube([ 0.4*d.x , d.y , 3*f2 ] , r=f2 , c="xz" ); }
-	nops( [d.x,d.y,COVERSIZE] , w , f1 , f2 , size=.25 ); }
+	nops( [d.x,d.y,COVERSIZE] , w , f1 , f2 , size=.20 ); }
 
 
 
@@ -171,7 +171,7 @@ module bgs_raw_cover ( d , w=1.0 , f1=2.5 , f2=1.5 ) {
 // z cord is 2.5 mm taller! cause of topper
 // internal storage offset for x and y is roughtly 5 mm (plus wiggle room)
 // internal storage offset for z is roughtly 2.5 mm (plus wiggle room, mind card "expansion")
-$fn=50; 
+$fn=100; 
 // ==================================================================================================== //
 
 /* PlayerStorage
@@ -239,18 +239,55 @@ H = 25+2.5;
 //bgs_token([ 101 , 80 , H ]);
 //translate([-101 ,0,0]) bgs_token_cover([ 101 , 80 , H ]);
 
+
+
 // Chips InGame
-//COVERSIZE = 15+10;
+COVERSIZE = 15+10;
 //difference() {
 //	bgs_raw([ 39 , 101 , H ]);
-//	translate([0,0,2.5+H-2.5-10]) cube([39,101,2*H]);
-//	#translate([39/2-(6.5) , 8.5+10.5 , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 13, r = 10.5);
-//	#translate([39/2-(7.6) , 8.5+21+8.5+10.5 , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 15.2, r = 10.5);
-//	#translate([39/2-(7.6) , 8.5+21+8.5+21+8.5+12.5 , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 15.2, r = 12.5);
+//
+//	translate([0, 0 ,2.5+H-2.5-10]) cube([39, 8.5+21+4.25 ,2*H]);
+//	translate([0, 101-(8.5+21+4.25) ,2.5+H-2.5-10]) cube([39, 8.5+21+4.25 ,2*H]);
+//
+//	translate([39/2-(6.5) , 8.5+10.5 , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 13, r = 10.5);
+//	translate([39/2-(7.6) , 101-(8.5+10.5) , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 15.3, r = 10.5);
+//
+//	#translate([39/2 , 101/2 , H-15.5]) cylinder(h = 15.5+.1, r = 12.6);
+//	translate([0 , 101/2-7 , 5]) cube([ 39 , 14 , 50 ]);
+//	
+//	//#translate([39/2-(7.6) , 8.5+21+8.5+10.5 , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 15.2, r = 10.5);
 //}
-//translate([-39 ,0,0]) bgs_token_cover([ 39 , 101 , H ]);
+translate([-39 ,0,0]) bgs_token_cover([ 39 , 101 , H ]);
 
 
+
+// Chips Start
+/*
+COVERSIZE = 15+10;
+difference() {
+	bgs_raw([ 39 , 101 , H ]);
+	translate([0, 0 ,2.5+H-2.5-10]) cube([39, 101 ,2*H]);
+	sep = 3.4;
+	translate([39/2-(4.5) , 10.5+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 9, r = 10.5);
+	translate([39/2-(4.5) , 10.5+sep+21+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 9, r = 10.5);
+	translate([39/2-(4.5) , 10.5+sep+21+sep+21+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 9, r = 10.5);
+	translate([39/2-(4.5) , 10.5+sep+21+sep+21+sep+21+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = 9, r = 10.5);
+}
+*/
+
+
+// Chips Star
+/*
+COVERSIZE = 15+10;
+difference() {
+	bgs_raw([ 39 , 101 , H ]);
+	translate([0, 0 ,2.5+H-2.5-10]) cube([39, 101 ,2*H]);
+	//sep = 9.5; h = 13.4;  // One Star
+	sep = 9.5; h = 9.1; // Two Star
+	translate([39/2-(h/2) , 10.5+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = h, r = 10.5);
+	translate([39/2-(h/2) , 10.5+sep+21+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = h, r = 10.5);
+	translate([39/2-(h/2) , 10.5+sep+21+sep+21+sep , H-10]) rotate(a = 90, v = [0,1,0])  cylinder(h = h, r = 10.5);
+}*/
 
 
 
@@ -305,7 +342,7 @@ module planets() {
 //		translate([ 71 , 66.67 ,0])  rotate(180, [0,0,1])  planets();
 //	}
 //}
-translate([-99 ,0,0]) bgs_token_cover([ 99 , 180 , H ]);
+//translate([-99 ,0,0]) bgs_token_cover([ 99 , 180 , H ]);
 
 
 
